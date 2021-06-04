@@ -40,8 +40,23 @@
         </section>
         <span>Hello World!</span>
         <script>
-            const image = document.querySelector("img");
-            console.log(image);
+            // const image = document.querySelector("img");
+            // console.log(image);
+
+            // 부분적으로 수정해야한다면
+            const section = document.querySelector("section");
+            const h2 = document.createElement("h2");
+            h2.setAttribute("class", "title"); //<h2 class="title"></h2>
+            h2.textContent = "This is a title"; //<h2 class="title">This is a title</h2>
+            // section.appendChild(h2);
+            const h3 = document.querySelector("h3");
+            section.insertBefore(h2, h3);
+
+            // 전체적인 HTML을 수정할 때마다 변경해야하므로 수정사항 없을 경우 사용
+            // section.innerHTML = `
+            // <img src="img/avatar.png" alt="avatar" />
+            // <h1 id="brand">Dream Coding</h1>
+            // `;
         </script>
     </body>
 </html>
