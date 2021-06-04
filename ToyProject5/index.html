@@ -6,9 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Shopping List</title>
         <script src="main.js" defer></script>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+            crossorigin="anonymous"
+        />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div>Shopping List</div>
+        <section class="list">
+            <header class="header">Shopping List</header>
+            <ul class="items">
+                <li class="itemLow">
+                    <span class="itemName">Egg</span>
+                    <button class="itemDelete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </li>
+            </ul>
+            <footer class="footer">
+                <input type="text" class="fotterInput" />
+                <button class="footerButton">
+                    <i class="fas fa-plus-circle"></i>
+                </button>
+            </footer>
+        </section>
     </body>
 </html>
