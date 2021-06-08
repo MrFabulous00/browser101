@@ -22,33 +22,44 @@ function onAdd() {
     input.value = "";
     input.focus();
 }
-
+let id = 0;
 function createItem(text) {
     const itemRow = document.createElement("li");
     itemRow.setAttribute("class", "itemRow");
+    itemRow.setAttribute("data-id", "id");
+    itemRow.innerHTML = `
+                    <div class="item" >
+                        <span class="itemName">${text}</span>
+                        <button class="itemDelete" >
+                            <i class="fas fa-trash-alt" data-id=${id}></i>
+                        </button>
+                    </div>
+                    <div class="itemDivider"></div>
+                    id++;
+                    return itemRow;
+                `;
+    // const item = document.createElement("div");
+    // item.setAttribute("class", "item");
 
-    const item = document.createElement("div");
-    item.setAttribute("class", "item");
+    // const name = document.createElement("span");
+    // name.setAttribute("class", "itemName");
+    // name.innerText = text;
 
-    const name = document.createElement("span");
-    name.setAttribute("class", "itemName");
-    name.innerText = text;
+    // const deleteBtn = document.createElement("div");
+    // deleteBtn.setAttribute("class", "itemDelete");
+    // deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    // deleteBtn.addEventListener("click", () => {
+    //     items.remove(itemRow);
+    // });
 
-    const deleteBtn = document.createElement("div");
-    deleteBtn.setAttribute("class", "itemDelete");
-    deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-    deleteBtn.addEventListener("click", () => {
-        items.remove(itemRow);
-    });
+    // const itemDivider = document.createElement("div");
+    // itemDivider.setAttribute("class", "itemDivider");
 
-    const itemDivider = document.createElement("div");
-    itemDivider.setAttribute("class", "itemDivider");
+    // item.appendChild(name);
+    // item.appendChild(deleteBtn);
 
-    item.appendChild(name);
-    item.appendChild(deleteBtn);
-
-    itemRow.appendChild(item);
-    itemRow.appendChild(itemDivider);
+    // itemRow.appendChild(item);
+    // itemRow.appendChild(itemDivider);
     return itemRow;
 }
 
@@ -60,5 +71,13 @@ input.addEventListener("keypress", (e) => {
     console.log("key");
     if (e.key === "Enter") {
         onAdd();
+    }
+});
+
+items.addEventListener("click", (e) => {
+    const id = e.target.dataset.id;
+    if (id) {
+        const toBeDeleted = document.querySelector(`.itemRow[data-id="${id}"]`);
+        toBeDeleted.remove();
     }
 });
