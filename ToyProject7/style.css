@@ -45,6 +45,7 @@ body {
     border-radius: 20px;
     font-size: 32px;
     margin-top: 8px;
+    visibility: hidden;
 }
 
 .gameScore {
@@ -57,6 +58,7 @@ body {
     border-radius: 50%;
     background-color: darksalmon;
     color: white;
+    visibility: hidden;
 }
 
 .gameField {
