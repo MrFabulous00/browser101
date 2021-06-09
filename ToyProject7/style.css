@@ -60,10 +60,10 @@ body {
 }
 
 .gameField {
+    position: relative;
     width: 100%;
     height: 100%;
     margin-top: 40px;
-    opacity: 0.4;
 }
 
 .popUp {
