@@ -2,23 +2,26 @@
 
 export default class PopUp {
     constructor() {
-        this.popUp = document.querySelector(".popUp");
-        this.popUpText = document.querySelector(".popUpMessage");
-        this.popUpRefresh = document.querySelector(".popUpRefresh");
-        this.popUpRefresh.addEventLister("click", () => {
+        this.popUp = document.querySelector(".pop-up");
+        this.popUpMessage = document.querySelector(".pop-up__message");
+        this.popUpRefreshBtn = document.querySelector(".pop-up__refresh");
+
+        this.popUpRefreshBtn.addEventListener("click", () => {
+            this._hide();
             this.onClick && this.onClick();
-            this.hide();
         });
     }
-    setClickLister(onClick) {
+
+    setClickListener(onClick) {
         this.onClick = onClick;
     }
-    showWithText(Text) {
-        this.popUpText.innerHTML = Text;
-        this.popUp.classList.remove("popUpHide");
+
+    showWithText(text) {
+        this.popUpMessage.innerText = text;
+        this.popUp.classList.remove("hide");
     }
 
-    hide() {
-        this.popUp.classList.add("popUpHide");
+    _hide() {
+        this.popUp.classList.add("hide");
     }
 }
